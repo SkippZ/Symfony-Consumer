@@ -1,6 +1,6 @@
 version: "3.9"
 
-name: "sym-7"
+name: "symfony-consumer"
 
 services:
   nginx:
@@ -10,7 +10,7 @@ services:
     ports:
       - "8081:80"
     networks:
-      - internal
+      - consumer
     volumes:
       - ".:/var/www/html/"
     depends_on:
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     networks:
-      - internal
+      - consumer
     volumes:
       - ".:/var/www/html/"
       - "./docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
@@ -32,7 +32,7 @@ services:
   db:
     image: "mariadb:lts"
     networks:
-      - internal
+      - consumer
     ports:
       - 3307:3306
     environment:
@@ -50,5 +50,5 @@ services:
     command: npm run watch
 
 networks:
-  internal:
+  consumer:
     driver: bridge

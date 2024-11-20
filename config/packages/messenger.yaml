@@ -12,7 +12,7 @@ framework:
             type: "topic"
           queues:
             queue_1:
-              binding_keys: ["user.create"]
+              binding_keys: ["user.*"]
         # https://symfony.com/doc/current/messenger.html#transport-configuration
         # async: '%env(MESSENGER_TRANSPORT_DSN)%'
         # failed: 'doctrine://default?queue_name=failed'

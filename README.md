@@ -1,10 +1,9 @@
-# This is a very simple starter kit to kick of a Symfony project with Docker
-
 ## Included Services
 
 - nginx
 - php-fpm
-- mariadb
 - node
 
-To start the project run `docker compose up -d` and open `http://localhost:8080`
+To start the project run `docker compose up -d`
+
+To consume messages run `docker compose exec php-fpm bin/console messenger:consume async -vv`. The `-vv` is optional
